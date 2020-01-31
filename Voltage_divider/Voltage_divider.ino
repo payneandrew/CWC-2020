@@ -17,4 +17,7 @@ float Voltage(){
   return Voltage; 
 }
 
+
+
+power = Current() x Voltage()
 // this is a new change

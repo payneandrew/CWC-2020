@@ -1,11 +1,18 @@
+//https://github.com/jonblack/arduino-fsm
+#include <Fsm.h>
+// declare states
+
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-    windspeed();
-    voltage();
+  // read all inputs
+  windspeed();
+  voltage();
 }
+
+
 
 float voltage(){
   float voltage;
@@ -15,7 +22,6 @@ float voltage(){
 }
 
 int windspeed(){
-  // declare variables
   float V_S = 5.0; // supply voltage from arduino
   float rho = 1.204; // density of air
   float p_min = -497.68; // minimium pressure in pa
@@ -34,5 +40,4 @@ int windspeed(){
   Serial.println(velocity); // print velocity
   delay(100); // delay for stability
   return velocity;
-  
 }

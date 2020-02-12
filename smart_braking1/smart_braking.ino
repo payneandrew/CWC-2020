@@ -14,13 +14,13 @@ int TSR = 2;
 double r = 0.22; //blade radius in m
 double d = 2.00 * 3.14 * r;
 float alter = 0;
-int pos = 0;
+int pos = 30;
 
 void setup()
 {
   Serial.begin(9600);
   servo_9.attach(9);
-  servo_9.write(0);
+  servo_9.write(30);
   
   // TSR = 2(pi)r(RPM)/60(Wind_speed)
   // RPM = (TSR)60(Wind_speed)/2(pi)r
@@ -41,21 +41,21 @@ void loop()
       delay(1000);
     }else if (Wind_speed[i] >= 11 && Wind_speed[i] < 26) {
       alter = 1 - (RPM[10] + 0.00)/(RPM[i] + 0.00);
-      pos = 180 * alter * 3;
+      pos = 170 * alter * 3;
       Serial.print(", RPM: ");
       Serial.print(RPM[i]);
-      if (pos <= 180) {
+      if (pos <= 170) {
         servo_9.write(pos);
         Serial.print(", Alteration: ");
         Serial.print(alter * 300);
         Serial.println("%");
         delay(1000);
       } else {
-        servo_9.write(180);
+        servo_9.write(170);
         Serial.println(", Alteration: 100%");
         delay(1000);
       }
     } 
-    servo_9.write(0);
+    servo_9.write(30);
   }
 }

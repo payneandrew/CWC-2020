@@ -6,7 +6,7 @@ int cpr = 100;
 // Encoder output to Arduino Interrupt pin
 int rPin = 3;
 
-unsigned long duration; // in microseconds
+unsigned long t_pulse; // in microseconds
 
 int rpm = 0;
 
@@ -18,9 +18,9 @@ void setup()
 }
 
 void loop(){
-  duration = (pulseIn(rPin,HIGH) * 2)/1000; // counts = pulses x 2
-  rpm = (60/(duration * cpr));
-  //Serial.println(duration);
+  t_pulse = pulseIn(rPin,HIGH);
+  rpm = (60/(t_pulse * 2 * cpr));
+  //Serial.println(t_pulse);
   Serial.println(rpm);
 
 }

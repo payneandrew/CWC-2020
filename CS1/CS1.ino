@@ -28,4 +28,5 @@ int current() {
   Serial.println(currentValue,3);
   // 2.5s delay
   delay(2500);
+  return currentValue;
 }

@@ -8,8 +8,10 @@ void setup() {
 
 void loop() {
   // read all inputs
-  windspeed();
   voltage();
+  current();
+  windspeed();
+  rpm();
 }
 
 
@@ -19,6 +21,10 @@ float voltage(){
   voltage = 10.288*analogRead(A1)*5.0/1024.0;
   Serial.println(voltage);
   return voltage; 
+}
+
+float current(){
+  // insert current code here
 }
 
 int windspeed(){
@@ -40,4 +46,8 @@ int windspeed(){
   Serial.println(velocity); // print velocity
   delay(100); // delay for stability
   return velocity;
+}
+
+int rpm(){
+  // insert rpm code here
 }
